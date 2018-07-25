@@ -1,0 +1,10 @@
+// Font Awesome pseudo class
+.element {
+  &:after {
+    content: "\f004";
+    font-family: FontAwesome;
+    font-size: 20px;
+    height: 100%;
+    width: 10px;
+  }
+}
