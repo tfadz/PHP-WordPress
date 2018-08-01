@@ -25,6 +25,33 @@
 
    ?>
 
+    <!--  // Code not tested but could work -->
+
+    <!-- Slider -->
+          <?php if(get_row_layout() == "slider_content"): ?>
+          <section class="ri-slider">
+                <?php if(have_rows('slides')) : while(have_rows('slides')) : the_row(); 
+                  $slide = get_sub_field('slide');
+                ?>
+                <div>
+                  <?php if( !wp_is_mobile() ) {
+                     echo '<img src="' . $slide['sizes']['large'] . '" alt="' . $slide['alt'] .'">';
+                   }
+
+                   else {
+                    echo '<img src="' . $slide['sizes']['small']. '" alt="' . $slide['alt'] .'">';
+                   }
+                  ?>
+                </div>
+                <?php endwhile; endif; ?>
+           </section>
+        <?php endif; ?>
+
+      <?php  endwhile; endif; ?>
+
+      <!-- // end code -->
+
+
     </main><!-- #main -->
   </div><!-- #primary -->
 
