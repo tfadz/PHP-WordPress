@@ -1,0 +1,1 @@
+<?php do_shortcode(get_field('your-custom-field')); ?>
