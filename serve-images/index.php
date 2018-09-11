@@ -2,30 +2,27 @@
 
 <?php get_header();?>
 
+
  <div id="primary" class="content-area" style="max-width: 1000px;margin: 0 auto;font-weight: normal;">
     <main id="main" class="site-main">
-  
-   <?php 
-    $image = get_field('hero_image');
-    $thumb_size = 'thumbnail';
-    $full_size = 'url';
-    $fullSizeImage = $image[$full_size]; 
-    $mobileSizeImage = $image['sizes']['medium'];
-   ?>
+        <?php
+            $image = get_field('hero_image');
+            $thumb_size = 'thumbnail';
+            $full_size = 'url';
+            $fullSizeImage = $image[$full_size];
+            $mobileSizeImage = $image['sizes']['medium'];
+        ?>
         <!-- Use this to serve images the right way -->
 		<?php echo wp_get_attachment_image($image['id'], 'full' ); ?>
 
         <!-- Use this for other instances -->
         <?php
-
-//        if ( !wp_is_mobile() ) {
-//          echo '<img src="' . $fullSizeImage.'" />';
-//        }
-//
-//        else {
-//          echo '<img src="' . $mobileSizeImage.'" />';
-//        }
-
+        if ( !wp_is_mobile() ) {
+          echo '<img src="' . $fullSizeImage.'" />';
+        }
+        else {
+          echo '<img src="' . $mobileSizeImage.'" />';
+        }
         ?>
 
     <!--  // Code not tested but could work -->
