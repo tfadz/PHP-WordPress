@@ -12,18 +12,21 @@
     $fullSizeImage = $image[$full_size]; 
     $mobileSizeImage = $image['sizes']['medium'];
    ?>
+        <!-- Use this to serve images the right way -->
+		<?php echo wp_get_attachment_image($image['id'], 'full' ); ?>
 
-   <?php
+        <!-- Use this for other instances -->
+        <?php
 
-    if ( !wp_is_mobile() ) {
-      echo '<img src="' . $fullSizeImage.'" />';
-    }
+//        if ( !wp_is_mobile() ) {
+//          echo '<img src="' . $fullSizeImage.'" />';
+//        }
+//
+//        else {
+//          echo '<img src="' . $mobileSizeImage.'" />';
+//        }
 
-    else {
-      echo '<img src="' . $mobileSizeImage.'" />';
-    }
-
-   ?>
+        ?>
 
     <!--  // Code not tested but could work -->
 
@@ -47,7 +50,7 @@
            </section>
         <?php endif; ?>
 
-      <?php  endwhile; endif; ?>
+      <?php endwhile; endif; ?>
 
       <!-- // end code -->
 
