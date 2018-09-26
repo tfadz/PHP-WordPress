@@ -13,7 +13,7 @@
             $mobileSizeImage = $image['sizes']['medium'];
         ?>
         <!-- Use this to serve images the right way -->
-		<?php echo wp_get_attachment_image($image['id'], 'full' ); ?>
+        <?php echo wp_get_attachment_image($image['id'], 'full' ); ?>
 
         <!-- Use this for other instances -->
         <?php
