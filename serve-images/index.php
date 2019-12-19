@@ -1,4 +1,4 @@
-<!-- Example 1 --?
+<!-- Example 1 -->
 
 <?php
 
@@ -9,11 +9,13 @@ if( $image ) {
 echo wp_get_attachment_image( $image, $size );
 } 
 
+// Adding class to wp get
+<?php echo wp_get_attachment_image( $i_image, $size, "", ["class" => "b-lazy"] ); ?>
+
 
 ?>
 
-<div id="primary" class="content-area" style="max-width: 1000px;margin: 0 auto;font-weight: normal;">
-    <main id="main" class="site-main">
+
         <?php
             $image = get_field('hero_image');
             $thumb_size = 'thumbnail';
@@ -57,12 +59,3 @@ echo wp_get_attachment_image( $image, $size );
       <?php endif; ?>
 
     <?php endwhile; endif; ?>
-
-    <!-- // end code -->
-
-
-  </main><!-- #main -->
-</div><!-- #primary -->
-
-<?php
-get_footer();
