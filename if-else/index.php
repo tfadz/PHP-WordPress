@@ -15,3 +15,7 @@ Example 2
 <?php elseif($eyebrow_img) : ?>
 <img width="460" class="w-50 w-md-35 mx-auto" src="<?php echo $eyebrow_img ?>" alt="">
 <?php endif; ?>
+
+Example 3
+
+ <a href="<?php if($hs_link) : ?><?php echo $hs_link;  ?><?php else : ?><?php the_permalink(); ?><?php endif ?>">
