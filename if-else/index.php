@@ -1,4 +1,4 @@
-Example 1
+Example 1 Check template 1
 
 <?php if (! is_page_template('page-partner.php') ) { ?>
   <img src="<?php bloginfo('template_directory'); ?>/assets/images/destination.svg" />
@@ -19,3 +19,16 @@ Example 2
 Example 3
 
  <a href="<?php if($hs_link) : ?><?php echo $hs_link;  ?><?php else : ?><?php the_permalink(); ?><?php endif ?>">
+
+
+Example 3 - Check template 2 ( quicker way)
+
+<?php if ( is_page_template( 'eboost.php' ) ): ?>
+
+<a href=""> Hello</a>
+
+<?php else: ?>
+
+  <h1>Something</h1>
+        
+<?php endif ?>
