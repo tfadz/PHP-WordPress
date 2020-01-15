@@ -1,38 +1,24 @@
-    <section class="blog-grid">
-     <?php
-    
-    // The Arguments
-    
-    $args = array(
-      'post_type' => 'post',
-      'posts_per_page' => '-1',
-      'orderby' => 'date',
-      'order' => 'ASC'
-    );
-    
+<?php 
+$args = array(
+  'post_type' => 'post',
+  'posts_per_page' => '3',
+  'orderby' => 'date',
+);
 
-    // The Query
-    
-    $query_posts = new WP_Query($args);
-    
-    // The Loop
-    
-    if( $query_posts->have_posts() ) : ?>
-      
-      <?php while ( $query_posts->have_posts() ) : $query_posts->the_post(); ?>
+$query_posts = new WP_Query($args);
+if( $query_posts->have_posts() ) : ?>
 
-      <article class="blog-grid__item" data-aos="fade-left">
-        <a class="thumbnail" href="<?php the_permalink(); ?>">
-          <?php the_post_thumbnail( 'full' ); ?>
-        </a>
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <div style="font-size: .9rem;"><?php the_date( '', '', '', true ); ?></div>
-        <div style="font-size: .9rem;color: #999;padding-top:.5rem;">By <?php the_author(); ?></div>
-        <br />
-        <a class="read-more" href="<?php the_permalink(); ?>">Read More..</a>
+  <?php while ( $query_posts->have_posts() ) : $query_posts->the_post(); ?>
 
-      </article>
-      <?php endwhile; ?> 
-      <?php endif; ?>
-
-    </section>
+    <div class="col-lg-4">
+      <a href="<?php the_permalink(); ?>" class="card">
+        <?php the_post_thumbnail( 'full' ); ?>
+        <div class="card-body">
+          <h3><?php the_title(); ?></h3>
+          <button class="button arrow trans-no">Read More</button>
+        </div>
+      </a>
+    </div>
+  <?php endwhile; ?> 
+<?php endif; ?>
+<?php wp_reset_postdata();  ?> 
