@@ -20,3 +20,19 @@ function vidyard_function( $atts, $content = null ) {
 // Name of shortcode is vidyard
 add_shortcode('vidyard', 'vidyard_function');
  ?>
+
+
+
+ // Another example
+
+ function button_shortcode( $atts, $content = null ) {
+    //set default attributes and values
+    $values = shortcode_atts( array(
+        'url'     => '#',
+        'target'  => '_self',
+    ), $atts );
+     
+    return '<a href="'. esc_attr($values['url']) .'"  target="'. esc_attr($values['target']) .'" class="btn btn-green">'. $content .'</a>';
+ 
+}
+add_shortcode( 'button', 'button_shortcode' );
