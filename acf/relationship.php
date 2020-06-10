@@ -27,3 +27,27 @@ if( $posts ): ?>
 
   <?php endforeach; ?>
   <?php endif; ?>
+
+
+  <!-- The above example involves ACF relationship posts and that uses a category function thats ONLY for WP Core Categories -->
+  <!-- If setting up a CTP and using a custom taxonomy(category) you will want to use this instead -->
+  <?php 
+  $posts = get_field('res_feed');
+  if( $posts ): ?>
+    <?php foreach( $posts as $p ): ?>
+      <!-- Category Label -->
+    
+      <a class="item" href="<?php the_permalink($p->ID); ?>">
+      <?php $featured_img_url = get_the_post_thumbnail_url($p->ID,'medium_large'); ?>
+      <div class="featured-img" style="background-image: url(<?php echo $featured_img_url ?>);">
+            <?php $terms = get_the_terms( $p->ID, 'resource_category' ); 
+            foreach($terms as $term) {
+            $term_link = get_term_link( $term );
+            echo '<h6 class="category">' . $term->name . '</h6>';
+            } ?>
+      </div>
+      <h4><?php echo get_the_title( $p->ID ); ?></h4>
+    </a>
+
+    <?php endforeach; ?>
+    <?php endif; ?>
