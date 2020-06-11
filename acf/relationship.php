@@ -51,3 +51,26 @@ if( $posts ): ?>
 
     <?php endforeach; ?>
     <?php endif; ?>
+
+    <!-- this is how to reference a acf field from a relationship field, such as if you created acf fields for a custom post type and then use that for a relationship acf field -->
+     <? global $post;
+            $posts = get_field('leadership_blocks');
+            if( $posts ): ?>
+              <?php foreach( $posts as $post ): ?>
+                <?php setup_postdata($post); ?>
+
+                <a href="<?php the_permalink( $post->ID ); ?>" class="member">
+                  <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'medium_large'); ?>
+                  <div class="member-img" style="background-image: url(<?php echo $featured_img_url ?>);"></div>
+                  <div class="text">
+                    <h5><?php echo get_the_title( $post->ID ); ?></h5>
+                    <?php 
+                        the_field('bio_title', $post->ID); // <-- this is the acf field from the cpt -->
+                      ?>
+                      
+                  </div>
+                </a>
+
+              <?php endforeach; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
