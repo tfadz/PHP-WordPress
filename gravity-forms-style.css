@@ -1,0 +1,325 @@
+.gform_wrapper {
+  input[type="text"],
+  input[type="email"],
+  input[type="submit"],
+  textarea {
+    width: 100% !important;
+    border-radius: 0;
+    border: none;
+    padding: 0.5rem 1rem !important;
+  }
+
+  input[type="submit"] {
+    background: white;
+    font-weight: bold;
+    padding: 1.5rem !important;
+    box-shadow: 0 0 0 3px transparent;
+    line-height: 0;
+
+    &:hover {
+      background: none;
+      box-shadow: 0 0 0 3px white inset;
+      color: white;
+    }
+  }
+
+  li.gfield {
+    padding-right: 0 !important;
+  }
+
+  .gfield_required {
+    font-size: 0;
+  }
+
+  .gfield_label {
+    width: 100% !important;
+    line-height: 1 !important;
+    margin-bottom: 0 !important;
+    font-weight: normal !important;
+  }
+}
+
+// Global
+.gform_wrapper {
+  div.validation_error {
+    display: none;
+  }
+
+  li.gfield.gfield_error {
+    background: none !important;
+    border: none !important;
+
+    input[type="text"], textarea, select {
+      border: 2px solid $blue !important;
+    }
+
+    .ginput_container:before,
+    .ginput_container:after {
+      content: none !important;
+    }
+  }
+
+  li.gfield.gfield_error,
+  li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+    margin-top: 0 !important;
+  }
+
+  .validation_message {
+    color: $black !important;
+    font-weight: normal !important;
+    background: url(./assets/images/error.svg) left center no-repeat;
+    background-size: 1rem;
+    padding: 0 0 0 1.5rem !important;
+    font-size: 14px !important;
+  }
+
+  .gfield_error .gfield_label {
+    color: $black !important;
+  }
+}
+
+li.gfield.gfield_error.gfield_contains_required div.gfield_description {
+  color: white;
+  padding: .25rem 1rem;
+}
+
+// Contact form
+
+#gform_wrapper_1 {
+  position: relative;
+  z-index: 0;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+
+  &:before {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background: $khaki;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: auto;
+    width: 800rem;
+    z-index: -1;
+
+    @media screen and (max-width: 990px) {
+      position: relative;
+      left: 0;
+      margin: 0;
+    }
+  }
+
+  &.off {
+    &:before {
+      content: none;
+    }
+  }
+
+  #gform_fields_1 {
+    padding-top: 2rem;
+  }
+
+  #field_1_1 {
+    width: 48%;
+    margin-right: 2%;
+
+    @media screen and (max-width: $small) {
+      width: auto;
+      margin-right: 0;
+    }
+  }
+
+  .gfield {
+    margin-bottom: 1.5rem;
+  }
+
+  li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+    max-width: 100% !important;
+  }
+
+  .gfield_label {
+    font-size: 0;
+    display: none !important;
+  }
+
+  .gform_footer {
+    padding-left: 1.25rem;
+  }
+
+  input[type=text] {
+    background: none;
+    border-radius: 0;
+    border: 2px solid $black;
+    border-width: 0 0 2px 0;
+    padding-left: .75rem;
+    padding-top: 7px !important;
+    width: 100%;
+  }
+
+  textarea {
+    padding: 4rem 0 0 1rem;
+    background: none;
+    border-radius: 0;
+    border: 2px solid $black;
+    border-width: 0 0 2px 0;
+    position: relative;
+    height: 100px;
+  }
+
+  .gfield {
+    margin-top: .15rem;
+
+    .ginput_container {
+      position: relative;
+      margin-bottom: 0;
+
+      &:before {
+        position: absolute;
+        bottom: 0;
+        height: 15px;
+        content: "|";
+        color: transparent;
+        border-left: 2px solid $black;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        height: 15px;
+        content: "|";
+        color: transparent;
+        border-right: 2px solid $black;
+        right: 0;
+      }
+    }
+  }
+
+  .gfield .ginput_container_textarea {
+    &:before {
+      bottom: 6px;
+      content: "";
+    }
+
+    &:after {
+      bottom: 6px;
+      content: "";
+    }
+  }
+
+  .gform_button {
+    background: $khaki url(./assets/images/submit-bg.svg) no-repeat right center;
+    background-size: auto 110%;
+    margin: 0;
+    color: $black;
+    box-shadow: 0 0 0 2px $black;
+    display: inline-block;
+    text-align: left;
+    text-transform: uppercase;
+    max-width: 200px;
+    padding: 1.25rem 1rem !important;
+
+    &:hover {
+      background: $khaki url(./assets/images/submit-bg-hover.svg) no-repeat right center;
+      background-size: auto 110%;
+      color: $black;
+    }
+  }
+}
+
+// Request Form
+#gform_wrapper_2 {
+  background: $khaki;
+  margin-top: 0;
+  height: 1100px;
+  position: absolute;
+
+  .gform_body {
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"],
+    textarea {
+      width: 100% !important;
+      border-radius: 0;
+      border: none;
+      padding: 0.5rem;
+      line-height: 100%;
+    }
+
+    select {
+      background: white url(./assets/images/arrow-down.svg) no-repeat 98% center;
+      background-size: auto 25%;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      box-sizing: border-box;
+      min-width: 1px;
+      overflow: hidden;
+      padding: .5rem;
+      width: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      position: relative;
+    }
+
+    label {
+      font-family: $space !important;
+      font-weight: bold !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .gfield {
+      margin: 0 0 1.5rem 0;
+    }
+
+    .ginput_container {
+      margin-top: .1rem;
+    }
+  }
+
+  .gform_ajax_spinner {
+    display: none !important;
+  }
+
+  .gform_footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .gform_button {
+    background: $khaki url(./assets/images/submit-bg.svg) no-repeat right center;
+    background-size: auto 110%;
+    margin: 0;
+    color: $black;
+    box-shadow: 0 0 0 2px $black;
+    display: inline-block;
+    text-align: left;
+    text-transform: uppercase;
+    max-width: 200px;
+    padding: 1.25rem 1rem !important;
+
+    @media (max-width: $small) {
+      max-width: 100%;
+      padding: 0.65rem 1rem !important;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background: $khaki url(./assets/images/submit-bg-hover.svg) no-repeat right center;
+      background-size: auto 110%;
+      color: $black;
+    }
+  }
+}
+
+// Confirmation Message
+.gform_confirmation_wrapper {
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+}
