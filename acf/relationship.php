@@ -74,3 +74,26 @@ if( $posts ): ?>
               <?php endforeach; ?>
               <?php wp_reset_postdata(); ?>
             <?php endif; ?>
+
+
+  // Pull tags and seperate by commas. This is for custom post types.
+
+  <?php
+  // Pull tags
+  $terms = get_the_terms( $post->ID, 'chronic_illness' ); 
+  if( $terms ):
+      $total = count($terms);
+      $count = 1;
+      foreach( $terms as $term ):
+        ?>
+          <a href="<?php 
+            echo get_term_link( $term ); ?>"><?php 
+            echo $term->name; ?></a>
+        <?php 
+        if ($count < $total) {
+          echo ', ';
+        }
+        $count++;
+      endforeach;
+    endif; 
+   ?>
