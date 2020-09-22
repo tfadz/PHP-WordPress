@@ -44,6 +44,26 @@ Another way..this also shows how to get the term link
 </ul> 
 
 
+To Show related posts by custom taxonomy 
+
+<?php $terms = get_the_terms( get_the_ID(), 'consulting_services' );  ?>
+<?php $term_ids = wp_list_pluck($terms,'term_id'); ?>
+
+  <?php
+    $args = array(
+    'post_type'      => 'project',
+      'tax_query' => array(
+        array(
+        'taxonomy' => 'consulting_services',
+        'field' => 'id',
+        'terms' => $term_ids,
+        'operator'=> 'IN' 
+      )),
+    'posts_per_page' => 6,
+    'orderby'        => 'post__in',
+  );
+
+
 
 
 
