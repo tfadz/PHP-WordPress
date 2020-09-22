@@ -26,7 +26,25 @@ foreach($custom_terms as $custom_term) {
      }
 }
 
- ?>
+?>
+
+Another way..this also shows how to get the term link
+
+<?php $markets = get_the_terms( get_the_ID(), 'market' ); ?>
+<?php if( !empty($markets)) { ?>
+  <div class="content-block">
+    <h4>Markets</h4>
+    <ul>
+      <?php foreach ( $markets as $market_key ) { ?>
+        <?php $term_link = get_term_link( $market_key ); ?>
+        <li><a href="<?php echo $term_link ?>"><?php echo esc_html( $market_key->name ); ?></a></li>
+      <?php }  ?>
+    </div>
+  <?php }  ?>
+</ul> 
+
+
+
 
 
 <?php 
