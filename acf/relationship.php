@@ -97,3 +97,27 @@ if( $posts ): ?>
       endforeach;
     endif; 
    ?>
+   
+   // Pulling Posts thats connected to a relationship
+   <?php
+   $args = array(
+     'numberposts'	=> 3,
+     'post_type'		=> 'post',
+     'meta_query' => array(
+       array(
+         'key' => 'blog_author',  // <-- acf field
+         'value' => '"' . get_the_ID() . '"', 
+         'compare' => 'LIKE'
+       )
+     )
+   );
+    
+    $the_query = new WP_Query( $args );
+    ?>
+      <?php if( $the_query->have_posts() ): ?>
+        <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <h2><?php the_title(); ?></h2>
+        <?php endwhile; ?>
+      <?php endif; ?>
+
+      <?php wp_reset_query(); ?>
