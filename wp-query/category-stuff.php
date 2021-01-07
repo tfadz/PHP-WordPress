@@ -11,3 +11,7 @@ echo '<li><a href="' . get_category_link( $category->term_id ) . '">' .  $catego
 echo '</ul>';
 
 ?>
+
+// Check if post has category
+
+<?php if (has_category('news')) : ?>hello <?php endif; ?>
