@@ -25,3 +25,23 @@
     echo '<div class="video-embed video-iframe">', $video, '</div>';
 }
 ?>
+
+
+
+// Get Thumbnail Image
+
+<?php
+
+$url = get_field('video', false, false);
+//get wp_oEmed object, not a public method. new WP_oEmbed() would also be possible
+$oembed = _wp_oembed_get_object();
+//get provider
+$provider = $oembed->get_provider($url);
+//fetch oembed data as an object
+$oembed_data = $oembed->fetch( $provider, $url );
+$thumbnail = $oembed_data->thumbnail_url;
+$iframe = $oembed_data->html;
+
+ ?>
+
+<img src="<?php echo $thumbnail ?>" alt="">
