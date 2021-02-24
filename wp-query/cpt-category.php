@@ -8,7 +8,8 @@ foreach ( $terms as $term ) {
 ?>
 
 // To check for certain values in the category
-
+// The taxonomy is Virtual Tools, the two categories are Yes and No. This is from Mccormick website.
+// If Yes the name is converted to Virtual. If no nothing shows.
 <?php
 foreach ( $terms1 as $term ) {
 	if ( $term->name == 'No') :
