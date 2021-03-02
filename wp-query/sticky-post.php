@@ -26,3 +26,14 @@
 			<?php endif; ?>
 		<?php endif; ?>
 		<?php wp_reset_postdata();  ?>
+
+<?php
+	// this is what you put in for the non sticky posts
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page'  => 5,
+		'post_status' => 'publish',
+		'post__not_in' => get_option( 'sticky_posts' ),
+		'orderby' => 'date',
+	);
+?>
