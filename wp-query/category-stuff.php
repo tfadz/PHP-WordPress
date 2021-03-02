@@ -26,3 +26,12 @@ $args = array(
 'orderby' => 'date',
 'cat' => 21, <-- //look up what the category id number is in the Categories list.
 );
+
+// examples of category queries
+cat (int) - use category id.
+category_name (string) - use category slug.
+category__and (array) - use category id.
+category__in (array) - use category id.
+category__not_in (array) - use category id.
+
+i.e. 'category_name' => 'spotlight',
