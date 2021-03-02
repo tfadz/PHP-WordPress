@@ -98,8 +98,9 @@ if( $posts ): ?>
     endif; 
    ?>
    
+  
+   <?php 
    // Pulling Posts thats connected to a relationship
-   <?php
    $args = array(
      'numberposts'	=> 3,
      'post_type'		=> 'post',
@@ -121,3 +122,11 @@ if( $posts ): ?>
       <?php endif; ?>
 
       <?php wp_reset_query(); ?>
+
+
+<?php 
+// Link to permalink
+$permalink = get_permalink( $p->ID ); ?>        
+<article class="homePosts-post card" onclick="window.location='<?php echo esc_url($permalink); ?>';">
+
+
