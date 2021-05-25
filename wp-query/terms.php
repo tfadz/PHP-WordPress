@@ -44,6 +44,23 @@ Another way..this also shows how to get the term link
 </ul> 
 
 
+And another way... (this is from mccormick for single installations page)
+
+<ul class="locations">
+  <?php. // install_locations is the custom taxonomy
+  $terms = get_terms( array ( 'taxonomy' => 'install_locations', 'hide_empty' => false, 'parent' => 0, 'orderby' => 'description', 'order' => 'ASC' ));
+
+  foreach ($terms as $term) {
+    $name  = $term->name;
+    $cat_link = get_term_link( $term->slug, 'install_locations' );
+
+    ?>
+
+    <li><a href="<?php echo $cat_link; ?>"><?php echo $name; ?></a> </li>
+  <?php } ?>
+</ul>
+
+
 To Show related posts by custom taxonomy 
 
 <?php $terms = get_the_terms( get_the_ID(), 'consulting_services' );  ?>
