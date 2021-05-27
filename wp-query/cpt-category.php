@@ -7,6 +7,15 @@ foreach ( $terms as $term ) {
 }
 ?>
 
+// Get Category name and link to category page
+
+<?php
+	$terms = get_the_terms( $post->ID , 'install_locations' );
+	foreach ( $terms as $term ) {
+		echo '<li><a href="'.get_term_link($term).'">' . $term->name . '</a></li>';
+	}
+?>	
+
 // To check for certain values in the category
 // The taxonomy is Virtual Tools, the two categories are Yes and No. This is from Mccormick website.
 // If Yes the name is converted to Virtual. If no nothing shows.
