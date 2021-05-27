@@ -52,6 +52,30 @@ if( $posts ): ?>
     <?php endforeach; ?>
     <?php endif; ?>
 
+
+
+    <?php
+
+
+    // If for some reason the page title keeps repeating. Here's an example of how to fix.
+
+
+        $post_object = get_field('events_featured');
+        if( $post_object ): ?>
+          <?php $post = $post_object; ?>
+            <?php setup_postdata( $post ); ?>
+            <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+            <figure class="featured-img" style="background: url(<?php echo $url ?>) center/cover no-repeat;">
+              <h4><?php the_title(); ?></h4>
+            </figure>
+          <?php unset($post_object, $post); ?>
+            <?php wp_reset_postdata(); ?>
+        <?php endif; ?> 
+
+
+
+
+
     <!-- this is how to reference a acf field from a relationship field, such as if you created acf fields for a custom post type and then use that for a relationship acf field -->
      <? global $post;
             $posts = get_field('leadership_blocks');
