@@ -54,3 +54,20 @@ Example 2
     <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
   <?php endif; ?>
         
+
+  <!-- If for some reason your posts are showing weird or some conflict is happeing (on wp query) do this before you post code-- >
+
+  <?php global $post; ?>
+
+  <!-- example from playful learning site -->
+
+  <div class="post-date">
+    <?php global $post; ?>
+    <?php
+    $date = get_field('events_date', $post);
+    $eventDate = new DateTime($date);
+    ?>
+
+    <div class="post-date-numeral"><?php echo $eventDate->format('j'); ?></div><div class="post-date-month"><?php echo $eventDate->format('F'); ?></div>
+
+  </div>
