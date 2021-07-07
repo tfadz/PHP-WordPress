@@ -59,6 +59,11 @@ Example 2
 
   <?php global $post; ?>
 
+  or try...
+
+  <?php $post_id = 238; // set the post this is the post id of the page. hover over page it will reveal number ?>
+
+
   <!-- example from playful learning site -->
 
   <div class="post-date">
