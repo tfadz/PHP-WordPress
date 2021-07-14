@@ -145,6 +145,23 @@ $services = get_terms(
     </div>
   </div> 
 <?php } ?>
+
+// For Each loop term and check what category
+
+<?php $terms = get_the_terms( $post->ID , 'people_category' ); ?>
+<?php if($terms) : ?>
+  <?php
+  foreach ( $terms as $term ) {
+    if($term->name == 'Ambassadors') {
+      echo '<div class="category">' . $term->name . '</div>';
+    }
+
+    else {
+      echo '<div class="category pl1">' .  $term->name .  '</div>';
+    }
+  }
+  ?>
+<?php endif; ?>
       
       
 
