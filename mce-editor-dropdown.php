@@ -2,6 +2,14 @@
 
 <?php 
 	
+function my_mce_buttons_2( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+
+
 
 	function my_tiny_mce_before_init( $mceInit ) {
 	    $style_formats = array(
