@@ -1,0 +1,2 @@
+// This displays custom logo without the link
+	<figure style="background: url(<?php echo $featured_img_url ?>) top/cover no-repeat;"></figure><?php else : ?><figure><img src="<?php echo esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'small' )[0] ); ?>" alt=""></figure>
