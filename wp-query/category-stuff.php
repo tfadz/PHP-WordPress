@@ -12,6 +12,30 @@ echo '</ul>';
 
 ?>
 
+// If there's more than 1 category add a comma if not don't 
+
+<?php $gfocuses = get_the_terms( $post->ID , 'grant_focus_area' ); ?>
+<?php if($gfocuses) : ?>
+  
+  <?php 
+  // Check to see if there's more than 1 category, if so add comma.
+  $count = count(get_the_terms( $post->ID , 'grant_focus_area' ));
+  $i = 1;
+
+  foreach ( $gfocuses as $gfocus ) {
+      if ($i < $count) {
+        echo '<h4>' . $gfocus->name . '</h4>' . ', ';
+      }
+      else {
+        echo '<h4>' . $gfocus->name . '</h4>';
+      }
+    $i++;
+  }
+  ?>  
+
+
+
+
 // Check if post has category
 
 <?php if (has_category('news')) : ?>hello <?php endif; ?>
