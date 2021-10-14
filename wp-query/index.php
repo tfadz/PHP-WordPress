@@ -76,3 +76,8 @@ Example 2
     <div class="post-date-numeral"><?php echo $eventDate->format('j'); ?></div><div class="post-date-month"><?php echo $eventDate->format('F'); ?></div>
 
   </div>
+  
+  
+  // To get title on the archive page use this..
+  
+  <h1><?php echo get_queried_object()->post_title; ?></h1>
