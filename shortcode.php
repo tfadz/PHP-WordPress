@@ -38,3 +38,5 @@ function button_shortcode( $atts, $content = null ) {
 
 add_shortcode('button', 'button_shortcode');
 ?>
+// Text entered in the back-end
+[button url="https://local.jllt.com/nyc-proptech/" target="_blank"]Read now[/button]
