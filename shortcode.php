@@ -23,9 +23,7 @@ add_shortcode('vidyard', 'vidyard_function');
 
 
 <?php
- // Another example
-
- //Displays custom button shortcode
+// Button shortcode
 function button_shortcode( $atts, $content = null ) {
     //set default attributes and values
     $values = shortcode_atts( array(
@@ -33,8 +31,10 @@ function button_shortcode( $atts, $content = null ) {
         'target'  => '_self',
         'color'   => '',
     ), $atts );
-     
-    return '<a href="'. esc_attr($values['url']) .'"  target="'. esc_attr($values['target']) .'" class=" btn-secondary'. esc_attr($values['color']) .'">'. $content .'</a>';
+	     
+    return '<a href="'. esc_attr($values['url']) .'"  target="'. esc_attr($values['target']) .'" class="primary-btn gray arrow'. esc_attr($values['color']) .'">'. $content .' </a>';
  
 }
+
+add_shortcode('button', 'button_shortcode');
 ?>
