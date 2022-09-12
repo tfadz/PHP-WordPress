@@ -32,11 +32,30 @@ echo '</ul>';
     $i++;
   }
   ?>  
+  
+  
+ <!-- Query by term name -->
+ 
+ <?php
+ $query = get_posts(
+     array(
+         'numberposts' => 2,
+         'post_type' => 'stories_cpt',
+         
+         'tax_query' => array(
+             array(
+                 'taxonomy' => 'stories_type', // <-- this is the custom taxonomy
+                 'field' => 'slug',
+                 'terms' => 'quotes', // <-- this is the term slug
+             )
+         ),
+         
+     );
+     
+    ?>
 
 
-
-
-// Check if post has category
+ <!-- Check if post has category -->
 
 <?php if (has_category('news')) : ?>hello <?php endif; ?>
 
