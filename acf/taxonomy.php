@@ -40,5 +40,36 @@ $term = get_field('which_location'); ?>
 
 
 
+<!-- Or like this ----- >
+
+<?php $resourceTags = get_field('type_of_resource'); ?>
+
+<?php $query_posts = new WP_Query(
+    array(
+        'post_type' => 'resource',
+        'orderby' => 'date',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'resources_tags', // name of taxonomy category slug
+                'terms'    => $resourceTags
+            )
+        )
+    ),
+);
+if( $query_posts->have_posts() ) : ?>
+<?php while ( $query_posts->have_posts() ) : $query_posts->the_post(); ?>
+    <div>
+        <a class="post" href="<?php echo get_the_permalink(); ?>">
+            <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
+            <figure class="post-image"><img src="<?php echo $featured_img_url ?>" alt=""></figure>
+        </div>
+    </a>
+</div>
+<?php endwhile; ?>
+<?php endif; ?>
+<?php wp_reset_postdata();  ?>
+
+
 
 
