@@ -7,7 +7,7 @@ $customTaxName = $resourceGalleryTax->name;
 <script>
 jQuery(function($) {
 /* 
-	1. First check to see if page is already filtered.
+	1. First check to see if page is already filtered (anything inside of the indexOf quotes).
 	2. Set timeout to wait for wp facet to load.
 	3. Trigger event so category checkbox filter (hidden) is clicked. 
 */
