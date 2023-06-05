@@ -39,3 +39,28 @@ function website_colors_setup() {
 	) );
 }
 add_action( 'after_setup_theme', 'website_colors_setup' );
+
+
+
+// SASS
+
+
+.has-light-gray-background-color {
+  background: $gray-light;
+}
+
+.has-medium-gray-background-color {
+  background: $gray-medium;
+}
+
+.has-light-gray-background-color {
+  background: $gray-light;
+}
+
+.has-lightest-gray-background-color {
+  background: $gray-lightest;
+}
+
+.has-medium-red-background-color {
+  background: $red;
+}
