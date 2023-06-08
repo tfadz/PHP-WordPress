@@ -1,0 +1,8 @@
+// Gravity Forms anchor - disable auto scrolling of ALL forms
+add_filter("gform_confirmation_anchor", create_function("","return false;"));
+This option is buggy 
+
+//Gravity Forms anchor - with form ID 
+add_filter( 'gform_confirmation_anchor_5', '__return_false' );
+This one def works per form. Replace 5 with your Gravity form id.
+
