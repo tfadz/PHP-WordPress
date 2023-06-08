@@ -1,0 +1,8 @@
+1. Create ACF field
+2. Create hidden field on your Gravity form with the same name.
+3. Add this code to your functions.php (banner_resource_link is the acf field name here). replace all references to your acf field name.
+
+add_filter( 'gform_field_value_banner_resource_link', 'gf_filter_banner_resource_link' );
+function gf_filter_banner_resource_link() {
+    return esc_attr( get_field( 'banner_resource_link' ) );
+}
