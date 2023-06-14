@@ -1,0 +1,4 @@
+<?php 
+ $summary = get_field('description');
+ echo substr($summary, 0, 200); 
+?>
