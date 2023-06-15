@@ -10,7 +10,7 @@ function acf_blocks_init()
         'render_template'   => '/template-parts/blocks/home-hero.php',
         'category'          => 'jll-blocks',
         'mode'              => 'edit',
-        'icon' => file_get_contents( get_template_directory() . '/assets/images/logo.svg' ),
+        'icon' => file_get_contents( get_template_directory() . '/assets/images/logo.svg' ), // <-- this svg should not have xml code at the top otherwise WP will ignore.
     ));
     
 
