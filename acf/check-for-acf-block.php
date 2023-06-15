@@ -1,24 +1,39 @@
 <?php
-// From where the ACF Blocks are registered..
-// ACF Block
-acf_register_block_type(array(
-  'name'              => 'hero',
-  'title'             => __('Hero'),
-  'render_template'   => '/template-parts/blocks/hero.php',
-  'category'          => 'union-blocks',
-  'mode' => 'edit',
-));
-?>
+// ACF Gutenberg Blocks
+
+function acf_blocks_init()
+{
+
+    acf_register_block_type(array(
+        'name'              => 'home_hero',
+        'title'             => __('Homepage Hero'),
+        'render_template'   => '/template-parts/blocks/home-hero.php',
+        'category'          => 'jll-blocks',
+        'mode'              => 'edit',
+        'icon' => file_get_contents( get_template_directory() . '/assets/images/logo.svg' ),
+    ));
+    
 
 
-<?php if (!has_block('acf/hero')) : ?>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <header class="entry-header">
-          <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-        </header>
-      </div>
-    </div>
-  </div>
-<?php endif; ?>
+
+}
+// Check if function exists and hook into setup.
+if (function_exists('acf_register_block_type')) {
+    add_action('acf/init', 'acf_blocks_init');
+}
+
+function jll_category( $categories, $post ) 
+{
+   return array_merge
+   (
+      $categories, array
+      (
+         array
+         (
+            'slug' => 'jll-blocks',
+            'title' => __('JLL Blocks', 'jll'),
+         ),
+      )
+   );
+}
+add_filter( 'block_categories_all', 'jll_category', 10, 2);
