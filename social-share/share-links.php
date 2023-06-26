@@ -16,7 +16,7 @@
 <?php  global $wp;
 $current_url = home_url(add_query_arg(array(), $wp->request));
 ?>
-                        ?>
+
 <ul>
     <li>SHARE</li>
     <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
