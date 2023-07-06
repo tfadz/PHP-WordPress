@@ -1,0 +1,9 @@
+<?php 
+  $selected_post = get_field('video_web_featured_post'); // <-- relationship field
+  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+  $args = array(
+      'post_type'      => 'videos_webinars',
+      'orderby'        => 'date',
+      'paged'          => $paged,
+      'post__not_in'   => array($selected_post->ID) // <-- this pulls in the post ID
+  );
