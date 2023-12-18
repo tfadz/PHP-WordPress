@@ -12,7 +12,7 @@ register_nav_menus( array(
 ?>
 
 
-// Add this to header.php
+<!--  Add this to header.php -->
 
 <?php
   wp_nav_menu( array(
