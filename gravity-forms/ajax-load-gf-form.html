@@ -1,0 +1,40 @@
+------------------------ add to js file ------------------------
+
+setTimeout(function() {
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'load_gravity_form',
+            },
+            success: function(response) {
+                // Assuming you have a container with the ID 'gravity-form-container'
+                $('#marvin').html(response);
+            },
+        });
+    }, 5000);
+    
+    
+    
+    
+    
+  ------------------------  add to functions ------------------------
+    
+    add_action('wp_head', 'myplugin_ajaxurl');
+
+    function myplugin_ajaxurl() {
+
+       echo '<script type="text/javascript">
+               var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+             </script>';
+    }
+
+    function load_gravity_form() {
+        ob_start();
+        gravity_form(2, false, false, false, '', true);
+        $form = ob_get_clean();
+        echo $form;
+        wp_die();
+    }
+    add_action( 'wp_ajax_load_gravity_form', 'load_gravity_form' );
+    add_action( 'wp_ajax_nopriv_load_gravity_form', 'load_gravity_form' );
